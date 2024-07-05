@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Pizza Cart</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+</head>
+
+<body>
+    <div x-data="pizzaCart()">
+        <h1>Perfect Pizza</h1>
+        <div class="menu">
+            <h2>Pizza orders</h2>
+            <div>
+                <div class="cart">
+                    <h3>Shopping Cart</h3>
+                    <ul>
+                        <li>Small: <button @click="addPizza('small')">+</button> <button
+                                @click="removePizza('small')">-</button> <span x-text="smallCount"></span></li>
+                        <li>Medium: <button @click="addPizza('medium')">+</button> <button
+                                @click="removePizza('medium')">-</button> <span x-text="mediumCount"></span></li>
+                        <li>Large: <button @click="addPizza('large')">+</button> <button
+                                @click="removePizza('large')">-</button> <span x-text="largeCount"></span></li>
+                    </ul>
+                    <p>Total cost: <span x-text="totalCost"></span></p>
+                    <button @click="checkoutClicked = true">Checkout</button>
+                    <div x-show="checkoutClicked" class="payment-section">
+                        <div>
+                            <label for="payment-amount">Payment amount:</label>
+                            <input type="number" id="payment-amount" placeholder="Enter amount"
+                                x-model.number="paymentAmount">
+                        </div>
+                        <button @click="pay">Pay</button>
+                        <p x-text="message" x-show="message !== ''"></p>
+                    </div>
+                </div>
+                <div class="pizza">
+                    <h3>Pizza Menu</h3>
+                    <div class="pizzas">
+                        <div class="one">
+                            <img src="pizza (1).png" alt="Large Pizza" width="150">
+                            <h4>Large Pizza</h4>
+                            <h5>R87.99</h5>
+                            <ul>
+                                <li>Medium margeritha pizza with 3 toppings</li>
+                                <li>max. 2 or less other toppings.</li>
+                            </ul>
+                            <button @click="addPizza('large')">Buy</button>
+                        </div>
+                        <div class="two">
+                            <img src="pizza (1).png" alt="Medium Pizza" width="150">
+                            <h4>Medium Pizza</h4>
+                            <h5>R58.99</h5>
+                            <ul>
+                                <li>Large margeritha pizza with 3 toppings max.</li>
+                                <li>3 meat toppings max.</li>
+                                <li>3 or less other toppings.</li>
+                            </ul>
+                            <button @click="addPizza('medium')">Buy</button>
+                        </div>
+                        <div class="three">
+                            <img src="pizza (1).png" alt="Small Pizza" width="150">
+                            <h4>Small Pizza</h4>
+                            <h5>R31.99</h5>
+                            <ul>
+                                <li>Small pizza with 3 toppings 1 meat topping.</li>
+                                <li>3 or less other toppings.</li>
+                            </ul>
+                            <button @click="addPizza('small')">Buy</button>
+                        </div>
+                    </div>
+                    <div class="pizza contact_us">
+                        <h2>Contact details</h2>
+                        <div class="contact-item">
+                            <p class="details">Contact us at:</p>
+                            <p class="credentials">011 143 2930</p>
+                        </div>
+                        <div class="contact-item">
+                            <p class="details">Twitter:</p>
+                            <p class="credentials">smmed</p>
+                        </div>
+                        <div class="contact-item">
+                            <p class="details">Facebook:</p>
+                            <p class="credentials">makhanya</p>
+                        </div>
+                        <div class="contact-item">
+                            <p class="details">Instagram:</p>
+                            <p class="credentials">maxmilla</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
