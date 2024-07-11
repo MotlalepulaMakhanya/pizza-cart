@@ -39,7 +39,8 @@ function pizzaCart() {
             let amount = Number(this.paymentAmount);
 
             if (amount >= total) {
-                this.message = "Payment successful. Enjoy your pizzas!";
+                let change = amount - total;
+                this.message = `Payment successful. Enjoy your pizzas! Your change is R${change.toFixed(2)}.`;
                 // Show the success message for 5 seconds before resetting fields
                 setTimeout(() => {
                     this.smallCount = 0;
@@ -59,5 +60,3 @@ function pizzaCart() {
         }
     };
 }
-
-
